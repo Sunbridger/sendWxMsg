@@ -15,6 +15,7 @@ class HomeController extends Controller {
   async getMsg() {
     const { ctx } = this;
     console.log(ctx.request.body);
+    ctx.set('Content-Type', 'text/xml');
     ctx.body = `<xml>
     <ToUserName><![CDATA[oEBMD6RN7frIloYFu-O8Wo5DeG3Q]]></ToUserName>
     <FromUserName><![CDATA[oEBMD6RN7frIloYFu-O8Wo5DeG3Q]]></FromUserName>
