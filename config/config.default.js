@@ -21,7 +21,8 @@ module.exports = appInfo => {
     secret: '8bbe96431cd2706da47af3be6d48b05f',
     // 用户的openid
     users: [
-      'oEBMD6RN7frIloYFu-O8Wo5DeG3Q'
+      'oEBMD6RN7frIloYFu-O8Wo5DeG3Q',
+      'oEBMD6fhGyjo7hVmhrMGsS1pZcdw',
     ],
     daily: 'k1BS3_yowDGRq6IOyltq8jjx7WJJ1dLwzOekccaeExE' // 普通模板
   };
