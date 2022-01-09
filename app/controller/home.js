@@ -13,7 +13,15 @@ class HomeController extends Controller {
   }
   async getMsg() {
     const { ctx } = this;
-    console.log(ctx.query);
+    console.log(ctx.request.body);
+    ctx.body = `<xml>
+    <ToUserName><![CDATA[toUser]]></ToUserName>
+    <FromUserName><![CDATA[fromUser]]></FromUserName>
+    <CreateTime>12345678</CreateTime>
+    <MsgType><![CDATA[text]]></MsgType>
+    <Content><![CDATA[你好]]></Content>
+  </xml>
+  `;
     return true;
   }
 }
