@@ -44,6 +44,23 @@ module.exports = appInfo => {
       enable: false,
     },
   };
+   // 覆盖egg自带的配置 使支持接收xml参数
+  config.bodyParser = {
+    enable: true,
+    encoding: 'utf8',
+    formLimit: '100kb',
+    jsonLimit: '100kb',
+    strict: true,
+    queryString: {
+      arrayLimit: 100,
+      depth: 5,
+      parameterLimit: 1000,
+    },
+    enableTypes: ['json', 'form', 'text'],
+    extendTypes: {
+      text: ['text/xml', 'application/xml'],
+    },
+  };
 
 
   return {
