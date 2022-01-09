@@ -18,7 +18,7 @@ class HomeController extends Controller {
     ctx.set('Content-Type', 'text/xml');
     ctx.body = `<xml>
     <ToUserName><![CDATA[oEBMD6RN7frIloYFu-O8Wo5DeG3Q]]></ToUserName>
-    <FromUserName><![CDATA[oEBMD6RN7frIloYFu-O8Wo5DeG3Q]]></FromUserName>
+    <FromUserName><![CDATA[gh_42b55b986faa]]></FromUserName>
     <CreateTime>12345678</CreateTime>
     <MsgType><![CDATA[text]]></MsgType>
     <Content><![CDATA[你好]]></Content>
