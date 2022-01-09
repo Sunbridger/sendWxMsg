@@ -31,6 +31,15 @@ module.exports = appInfo => {
     love: '2021-10-15', // 相爱日期
   };
 
+  config.cluster = {
+    listen: {
+      path: '',
+      port: 7003,
+      hostname: '0.0.0.0',
+    }
+  };
+
+
   return {
     ...config,
   };
