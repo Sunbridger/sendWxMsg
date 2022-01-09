@@ -13,7 +13,7 @@ class HomeController extends Controller {
   }
   async getMsg() {
     const { ctx } = this;
-    console.log(ctx.request.body);
+    console.log(ctx.query);
     ctx.body = `<xml>
     <ToUserName><![CDATA[toUser]]></ToUserName>
     <FromUserName><![CDATA[fromUser]]></FromUserName>
