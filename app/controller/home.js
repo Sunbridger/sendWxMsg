@@ -2,6 +2,8 @@
 // import { getMe } from '../../api/index.js'
 const Controller = require('egg').Controller;
 
+const formatMessage = require('../utils/formatMessage');
+
 class HomeController extends Controller {
   async send() {
     const { ctx, app } = this;
@@ -13,10 +15,10 @@ class HomeController extends Controller {
   }
   async getMsg() {
     const { ctx } = this;
-    console.log(ctx.request.body);
+    console.log(formatMessage(ctx.request.body));
     ctx.body = `<xml>
-    <ToUserName><![CDATA[toUser]]></ToUserName>
-    <FromUserName><![CDATA[fromUser]]></FromUserName>
+    <ToUserName><![CDATA[oEBMD6RN7frIloYFu-O8Wo5DeG3Q]]></ToUserName>
+    <FromUserName><![CDATA[oEBMD6RN7frIloYFu-O8Wo5DeG3Q]]></FromUserName>
     <CreateTime>12345678</CreateTime>
     <MsgType><![CDATA[text]]></MsgType>
     <Content><![CDATA[你好]]></Content>
