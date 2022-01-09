@@ -5,7 +5,8 @@ class UpdateCache extends Subscription {
   // 通过 schedule 属性来设置定时任务的执行间隔等配置
   static get schedule() {
     return {
-      cron: '0 30 9 * * *', // 每天的7点30分0秒执行
+      cron: '0 30 9 * * *', // 每天的9点30分0秒执行
+      type: 'all', // 指定所有的 worker 都需要执行
     };
   }
 
