@@ -39,6 +39,11 @@ module.exports = appInfo => {
       hostname: '0.0.0.0',
     }
   };
+  config.security = {
+    csrf: {
+      enable: false,
+    },
+  };
 
 
   return {
