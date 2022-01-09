@@ -11,6 +11,11 @@ class HomeController extends Controller {
     ctx.body = result;
     ctx.set('Content-Type', 'application/json');
   }
+  async getMsg() {
+    const { ctx } = this;
+    console.log(ctx.query);
+    return true;
+  }
 }
 
 module.exports = HomeController;
