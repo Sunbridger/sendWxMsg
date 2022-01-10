@@ -1,7 +1,7 @@
 'use strict';
 // import { getMe } from '../../api/index.js'
 const Controller = require('egg').Controller;
-
+const { parseString } = require('xml2js');
 
 class HomeController extends Controller {
   async send() {
@@ -14,15 +14,28 @@ class HomeController extends Controller {
   }
   async getMsg() {
     const { ctx } = this;
-    console.log(ctx.request.body);
-    ctx.set('Content-Type', 'text/xml');
-    ctx.body = `<xml>
-    <ToUserName><![CDATA[oEBMD6RN7frIloYFu-O8Wo5DeG3Q]]></ToUserName>
-    <FromUserName><![CDATA[gh_42b55b986faa]]></FromUserName>
-    <CreateTime>12345678</CreateTime>
-    <MsgType><![CDATA[text]]></MsgType>
-    <Content><![CDATA[你好]]></Content>
-  </xml>`;
+    parseString(ctx.request.body, (err, bodyJson) => {
+      if (err) {
+        ctx.set('Content-Type', 'text/xml');
+        ctx.body = `<xml>
+          <ToUserName><![CDATA[oEBMD6RN7frIloYFu-O8Wo5DeG3Q]]></ToUserName>
+          <FromUserName><![CDATA[gh_42b55b986faa]]></FromUserName>
+          <CreateTime>12345678</CreateTime>
+          <MsgType><![CDATA[text]]></MsgType>
+          <Content><![CDATA[系统繁忙，请稍后再试吧～]]></Content>
+        </xml>`;
+
+      } else {
+        ctx.set('Content-Type', 'text/xml');
+        ctx.body = `<xml>
+          <ToUserName><![CDATA${bodyJson.FromUserName}]></ToUserName>
+          <FromUserName><![CDATA${bodyJson.ToUserName}></FromUserName>
+          <CreateTime>${new Date()}</CreateTime>
+          <MsgType><![CDATA[text]]></MsgType>
+          <Content><![CDATA${bodyJson.Content}]></Content>
+        </xml>`;
+      }
+    });
   }
 }
 

@@ -24,7 +24,7 @@ module.exports = appInfo => {
       'oEBMD6RN7frIloYFu-O8Wo5DeG3Q',
       'oEBMD6fhGyjo7hVmhrMGsS1pZcdw',
     ],
-    daily: 'k1BS3_yowDGRq6IOyltq8jjx7WJJ1dLwzOekccaeExE' // 普通模板
+    daily: 'k1BS3_yowDGRq6IOyltq8jjx7WJJ1dLwzOekccaeExE', // 普通模板
   };
 
   // 时间
@@ -37,14 +37,14 @@ module.exports = appInfo => {
       path: '',
       port: 7003,
       hostname: '0.0.0.0',
-    }
+    },
   };
   config.security = {
     csrf: {
       enable: false,
     },
   };
-   // 覆盖egg自带的配置 使支持接收xml参数
+  // 覆盖egg自带的配置 使支持接收xml参数
   config.bodyParser = {
     enable: true,
     encoding: 'utf8',
@@ -56,9 +56,9 @@ module.exports = appInfo => {
       depth: 5,
       parameterLimit: 1000,
     },
-    enableTypes: ['json', 'form', 'text'],
+    enableTypes: [ 'json', 'form', 'text' ],
     extendTypes: {
-      text: ['text/xml', 'application/xml'],
+      text: [ 'text/xml', 'application/xml' ],
     },
   };
 
