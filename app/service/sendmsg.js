@@ -53,16 +53,19 @@ class sendmsg extends Service {
 
     const weatherData = await this.getWeather();
 
+    const love = this.getLoveDay();
+
+    const todayTime = this.getDatetime();
 
     const data = {
       topcolor: '#2db96c',
       data: {
         dateTime: {
-          value: this.getDatetime(),
+          value: todayTime,
           color: '#cc33cc',
         },
         love: {
-          value: this.getLoveDay(),
+          value: love,
           color: '#ff3399',
         },
         city: {
@@ -87,8 +90,15 @@ class sendmsg extends Service {
         },
       },
     };
-    // 正常模板
-    data.template_id = app.config.weChat.daily;
+
+    if ([100, 200, 300, 400].includes(love)) {
+      // 正常模板
+      data.template_id = app.config.weChat.anniversary;
+      data.url = `https://www.sunbridger.site/${love}.html`;
+    } else {
+      // 正常模板
+      data.template_id = app.config.weChat.daily;
+    }
 
     return data;
   }

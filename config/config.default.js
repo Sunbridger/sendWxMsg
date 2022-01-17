@@ -21,10 +21,11 @@ module.exports = appInfo => {
     secret: '8bbe96431cd2706da47af3be6d48b05f',
     // 用户的openid
     users: [
-      'oEBMD6RN7frIloYFu-O8Wo5DeG3Q',
-      'oEBMD6fhGyjo7hVmhrMGsS1pZcdw',
+      'oEBMD6RN7frIloYFu-O8Wo5DeG3Q', // 乔乔乔
+      'oEBMD6fhGyjo7hVmhrMGsS1pZcdw', // 文文
     ],
     daily: 'k1BS3_yowDGRq6IOyltq8jjx7WJJ1dLwzOekccaeExE', // 普通模板
+    anniversary: 'hLS_wOCkX8gh4WvLpWMJSskMWHnNpV6UMAV3RYaQV14', // 纪念日模版
   };
 
   // 时间
