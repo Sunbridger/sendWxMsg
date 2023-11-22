@@ -7,7 +7,7 @@ class UpdateCache extends Subscription {
     return {
       cron: '0 30 1 * * *', // 每天的9点30分0秒执行
       type: 'worker',
-      immediate: false,
+      immediate: ture,
     };
   }
 
