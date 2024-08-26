@@ -73,15 +73,15 @@ class sendmsg extends Service {
           color: '#1A01CC',
         },
         wea: {
-          value: weatherData.info.type,
+          value: weatherData.data.type,
           color: '#33ff33',
         },
         tem1: {
-          value: weatherData.info.high,
+          value: weatherData.data.high,
           color: '#ff0000',
         },
         tem2: {
-          value: weatherData.info.low,
+          value: weatherData.data.low,
           color: '#b9a82d',
         },
         message: {
@@ -91,7 +91,7 @@ class sendmsg extends Service {
       },
     };
 
-    if ([100, 200, 300, 400].includes(love)) {
+    if ([ 1000, 1314, 2000, 3000, 4000 ].includes(love)) {
       // 正常模板
       data.template_id = app.config.weChat.anniversary;
       data.url = `https://www.sunbridger.site/${love}.html`;
