@@ -112,6 +112,7 @@ class sendmsg extends Service {
     data.template_id = app.config.weChat.daily;
     // }
 
+
     return data;
   }
 
@@ -134,13 +135,15 @@ class sendmsg extends Service {
   }
   async getOneSentence() {
     const url = 'https://api.vvhan.com/api/text/love?type=json';
-    const {
-      data: { content },
-    } = await this.ctx.curl(url, {
-      method: 'get',
-      dataType: 'json',
-    });
-    return content || '每天爱我的臭宝多一点～～';
+    try {
+      const { data } = await this.ctx.curl(url, {
+        method: 'get',
+        dataType: 'json',
+      });
+      return data.data.content || '每天爱我的臭宝多一点～～';
+    } catch (error) {
+      return '每天爱我的臭宝多一点～～';
+    }
   }
 
   async getWeather(city = '南昌') {

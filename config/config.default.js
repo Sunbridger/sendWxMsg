@@ -26,8 +26,9 @@ module.exports = appInfo => {
     users: [
       'oEBMD6RN7frIloYFu-O8Wo5DeG3Q', // 乔乔乔
       'oEBMD6YpM8mYiDGzeFmbuPefHQ6U', // 乔乔乔小号
+      'oEBMD6QGPkyAGVTkAup1WQRD4R-I', // 娜宝
     ],
-    daily: 'ljptNqfAG0r89qNYssWt5mwXpwdVwqyr4suI6ZmbLH4', // 普通模板
+    daily: '0DKu_kCjWZo8cfQF1pQD6sOww6IBqucksJk_uea5xGA',
   };
 
   // 时间
