@@ -11,18 +11,26 @@ class sendmsg extends Service {
     // 模板消息接口文档
     const users = app.config.weChat.users;
     const promise = users.map(id => {
-      ctx.logger.info('--------------开始发送每日提醒-----------------------------------------------: %j', id);
+      ctx.logger.info(
+        '--------------开始发送每日提醒-----------------------------------------------: %j',
+        id
+      );
       data.touser = id;
       return this.toWechart(token, data);
     });
     const results = await Promise.all(promise);
-    ctx.logger.info('--------------结束发送每日提醒->结果-----------------------------------------------: %j', results);
+    ctx.logger.info(
+      '--------------结束发送每日提醒->结果-----------------------------------------------: %j',
+      results
+    );
     return results;
   }
   // 通知微信接口
   async toWechart(token, data) {
     // 模板消息接口文档
-    const url = 'https://api.weixin.qq.com/cgi-bin/message/template/send?access_token=' + token;
+    const url =
+      'https://api.weixin.qq.com/cgi-bin/message/template/send?access_token=' +
+      token;
     const result = await this.ctx.curl(url, {
       method: 'POST',
       data,
@@ -36,7 +44,11 @@ class sendmsg extends Service {
   // 获取token
   async getToken() {
     const { app } = this;
-    const url = 'https://api.weixin.qq.com/cgi-bin/token?grant_type=client_credential&appid=' + app.config.weChat.appld + '&secret=' + app.config.weChat.secret;
+    const url =
+      'https://api.weixin.qq.com/cgi-bin/token?grant_type=client_credential&appid=' +
+      app.config.weChat.appld +
+      '&secret=' +
+      app.config.weChat.secret;
     const result = await this.ctx.curl(url, {
       method: 'get',
       dataType: 'json',
@@ -91,14 +103,14 @@ class sendmsg extends Service {
       },
     };
 
-    if ([ 1000, 1314, 2000, 3000, 4000 ].includes(love)) {
-      // 正常模板
-      data.template_id = app.config.weChat.anniversary;
-      data.url = `https://www.sunbridger.site/${love}.html`;
-    } else {
-      // 正常模板
-      data.template_id = app.config.weChat.daily;
-    }
+    // if ([ 1000, 1314, 2000, 3000, 4000 ].includes(love)) {
+    //   // 正常模板
+    //   data.template_id = app.config.weChat.anniversary;
+    //   data.url = `https://www.sunbridger.site/${love}.html`;
+    // } else {
+    // 正常模板
+    data.template_id = app.config.weChat.daily;
+    // }
 
     return data;
   }
@@ -121,12 +133,14 @@ class sendmsg extends Service {
     return moment(moment().format('YYYY-MM-DD')).diff(loveDay, 'day');
   }
   async getOneSentence() {
-    const url = 'https://api.vvhan.com/api/love?type=json';
-    const { data: { ishan: textWhispers } } = await this.ctx.curl(url, {
+    const url = 'https://api.vvhan.com/api/text/love?type=json';
+    const {
+      data: { content },
+    } = await this.ctx.curl(url, {
       method: 'get',
       dataType: 'json',
     });
-    return textWhispers || '今日只有我爱你！';
+    return content || '每天爱我的臭宝多一点～～';
   }
 
   async getWeather(city = '南昌') {
@@ -137,7 +151,5 @@ class sendmsg extends Service {
     });
     return data;
   }
-
-
 }
 module.exports = sendmsg;

@@ -5,6 +5,9 @@
 /**
  * @param {Egg.EggAppInfo} appInfo app info
  */
+
+
+// https://mp.weixin.qq.com/debug/cgi-bin/sandboxinfo?action=showinfo&t=sandbox/index
 module.exports = appInfo => {
 
   const config = exports = {};
@@ -22,15 +25,14 @@ module.exports = appInfo => {
     // 用户的openid
     users: [
       'oEBMD6RN7frIloYFu-O8Wo5DeG3Q', // 乔乔乔
-      'oEBMD6fhGyjo7hVmhrMGsS1pZcdw', // 文文
+      'oEBMD6YpM8mYiDGzeFmbuPefHQ6U', // 乔乔乔小号
     ],
-    daily: 'k1BS3_yowDGRq6IOyltq8jjx7WJJ1dLwzOekccaeExE', // 普通模板
-    anniversary: 'hLS_wOCkX8gh4WvLpWMJSskMWHnNpV6UMAV3RYaQV14', // 纪念日模版
+    daily: 'ljptNqfAG0r89qNYssWt5mwXpwdVwqyr4suI6ZmbLH4', // 普通模板
   };
 
   // 时间
   config.time = {
-    love: '2021-10-15', // 相爱日期
+    love: '2024-09-14', // 相爱日期
   };
 
   config.cluster = {
