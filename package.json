@@ -26,7 +26,7 @@
     "node": ">=10.0.0"
   },
   "scripts": {
-    "start": "egg-scripts start --title=egg-server-serves",
+    "start": "nohup egg-scripts start --title=egg-server-serves > egg-server.log 2>&1 &",
     "stop": "egg-scripts stop --title=egg-server-serves",
     "dev": "egg-bin dev",
     "debug": "egg-bin debug",
