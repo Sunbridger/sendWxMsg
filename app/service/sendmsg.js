@@ -63,7 +63,7 @@ class sendmsg extends Service {
 
     const message = await this.getOneSentence();
 
-    const weatherData = await this.getWeather();
+    // const weatherData = await this.getWeather();
 
     const love = this.getLoveDay();
 
@@ -81,19 +81,19 @@ class sendmsg extends Service {
           color: '#ff3399',
         },
         city: {
-          value: weatherData.city,
+          value: '南昌' || weatherData.city,
           color: '#1A01CC',
         },
         wea: {
-          value: weatherData.data.type,
+          value: 'todo' || weatherData.data.type,
           color: '#33ff33',
         },
         tem1: {
-          value: weatherData.data.high,
+          value: 'todo' || weatherData.data.high,
           color: '#ff0000',
         },
         tem2: {
-          value: weatherData.data.low,
+          value: 'todo' || weatherData.data.low,
           color: '#b9a82d',
         },
         message: {
@@ -152,6 +152,7 @@ class sendmsg extends Service {
       method: 'get',
       dataType: 'json',
     });
+
     return data;
   }
 }
